@@ -1,0 +1,179 @@
+# Set Mod key to Mod4 (Super key)
+set $mod Mod4
+
+# Font settings
+font pango:JetBrains Mono 10
+
+# Autostart applications and services
+exec --no-startup-id dex-autostart --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id nm-applet
+exec --no-startup-id picom -b --blur-method dual_kawase --blur-strength 2
+exec --no-startup-id nitrogen --restore --random
+
+# Change Wallpapers
+bindsym $mod+Shift+w exec --no-startup-id /usr/bin/nitrogen --set-zoom-fill --random ~/background/NSFW/ --save
+bindsym $mod+Ctrl+w exec --no-startup-id /usr/bin/nitrogen --set-zoom-fill --random ~/background/NORMAL/ --save
+
+# Volume controls
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Mouse controls for floating windows
+floating_modifier $mod
+tiling_drag modifier titlebar
+
+# Redshift controls
+bindsym F11 exec redshift -O 4000
+bindsym F12 exec redshift -x
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Start dmenu (a program launcher)
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/scripts/launcher_t4
+
+# Power Launcher
+bindsym $mod+Ctrl+d exec --no-startup-id ~/.config/rofi/scripts/powermenu_t2
+
+# Window appearance and behavior
+default_border pixel 1
+default_floating_border pixel 1
+gaps inner 5
+smart_borders on
+smart_gaps on
+
+# Focus window directions
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move focused window directions
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Fullscreen toggle
+bindsym $mod+f fullscreen toggle
+
+# Toggle tiling/floating
+bindsym $mod+Shift+space floating toggle
+
+# Focus between tiling/floating windows
+bindsym $mod+space focus mode_toggle
+
+# Focus parent container
+bindsym $mod+a focus parent
+
+# Workspace definitions
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# Move container to workspace and switch
+bindsym $mod+Shift+1 move container to workspace number $ws1; workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2; workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3; workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4; workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5; workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6; workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7; workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8; workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9; workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number $ws10
+
+# Configuration reload and restart
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# Exit i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Resize window mode
+mode "resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    # Back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+# Set floating mode for specific applications
+for_window [class="Nitrogen" instance="nitrogen"] floating enable
+for_window [class="gnome-calculator" instance="gnome-calculator"] floating enable
+for_window [class="Mumble" instance="Mumble"] floating enable
+
+# Resize mode activation
+bindsym $mod+r mode "resize"
+
+# Screenshot bindings
+bindsym Print exec gnome-screenshot -i
+bindsym $mod+Print exec gnome-screenshot -a
+
+# Start polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# Application launch keybindings
+bindsym $mod+Return exec alacritty
+bindsym $mod+b exec firefox
+bindsym $mod+t exec thunar
+
+# Border colors
+client.focused          #4c7899 #285577 #ffffff #FFFFFF #79E6F3
+client.focused_inactive #333333 #5f676a #ffffff #484e50 #000000
+
+# Scratchpad settings
+for_window [class="ttrm"] floating enable
+for_window [class="ttrm"] resize set 1000 600
+for_window [class="ttrm"] move scratchpad
+exec --no-startup-id alacritty --class ttrm,ttrm
+
+for_window [class="ranger"] floating enable
+for_window [class="ranger"] resize set 1000 600
+for_window [class="ranger"] move scratchpad
+exec --no-startup-id alacritty --class ranger,ranger -e ranger
+
+# Scratchpad keybindings
+bindsym $mod+i [class="ttrm"] scratchpad show; [class="ttrm"] move position center
+bindsym $mod+e [class="ranger"] scratchpad show; [class="ranger"] move position center
+
+# Auto-tiling
+exec_always --no-startup-id autotiling
+
+# Assign workspaces to windows
+for_window [title="Firefox"] move container to workspace $ws1; workspace $ws1
+for_window [title="Alacritty"] move container to workspace $ws2; workspace $ws2
+for_window [title="Thunar"] move container to workspace $ws3; workspace $ws3
+for_window [title="Nitrogen"] move container to workspace $ws4; workspace $ws4
+for_window [title="Spotify"] move container to workspace $ws10; workspace $ws10
+
+# Set No border For all Windows
+for_window [class="^.*"] border pixel 0
