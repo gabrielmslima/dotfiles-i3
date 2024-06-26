@@ -78,11 +78,21 @@ stow <folder_name>
 
 # Screenshots
 
-![Screenshot](imgs/firefox-i3-gruvbox-dotfiles.png)
+Notetaking layout
 ![Screenshot](imgs/notetaking-i3-gruvbox-dotfiles.png)
+
+Coding layout
 ![Screenshot](imgs/terminals-i3-gruvbox-dotfiles.png)
+
+Wallpaper
 ![Screenshot](imgs/wallpaper-i3-gruvbox-dotfiles.png)
+
+Scratchpads
 ![Screenshot](imgs/scratchpads-i3-gruvbox-dotfiles.png)
+
+Rofi Setup
 ![Screenshot](imgs/rofi-i3-gruvbox-dotfiles.png)
+
+Exit Menu Setup
 ![Screenshot](imgs/exitmenu-i3-gruvbox-dotfiles.png)
 
