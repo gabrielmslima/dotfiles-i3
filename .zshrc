@@ -52,6 +52,12 @@ eval "$(zoxide init zsh)"
 source $HOME/.local/bin/fzf-zsh-completion.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --color=bg+:-1,bg:-1,spinner:#fb4934,hl:#928374,fg:-1,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934
+  --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="~ ❯"
+  --marker="◆" --pointer="❮>" --separator="─" --scrollbar="│"'
+
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
