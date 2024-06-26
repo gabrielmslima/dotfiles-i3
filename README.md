@@ -56,3 +56,33 @@ sudo pacman -S stow
 ```
 sudo pacman -S zsh zsh-syntax-highlighting zsh-autosuggestions zsh-completions fzf ripgrep zoxide fzf eza ripgrep
 ```
+
+Then clone the repository in your $HOME directory
+
+```
+git clone https://github.com/gabrielmslima/dotfiles-i3
+```
+
+Then cd into the repository and run the following command to symlink the configuration files to your $HOME directory
+
+```
+cd dotfiles-i3
+stow .
+```
+
+If you prefer to install a specific configuration file you can run the following command
+
+```
+stow <folder_name>
+```
+
+# Screenshots
+
+![Screenshot](imgs/firefox-i3-gruvbox-dotfiles.png)
+![Screenshot](imgs/notetaking-i3-gruvbox-dotfiles.png)
+![Screenshot](imgs/terminals-i3-gruvbox-dotfiles.png)
+![Screenshot](imgs/wallpaper-i3-gruvbox-dotfiles.png)
+![Screenshot](imgs/scratchpads-i3-gruvbox-dotfiles.png)
+![Screenshot](imgs/rofi-i3-gruvbox-dotfiles.png)
+![Screenshot](imgs/exitmenu-i3-gruvbox-dotfiles.png)
+
