@@ -12,7 +12,6 @@ exec --no-startup-id picom -b --blur-method dual_kawase --blur-strength 2
 exec --no-startup-id nitrogen --restore --random
 
 # Change Wallpapers
-bindsym $mod+Shift+w exec --no-startup-id /usr/bin/nitrogen --set-zoom-fill --random ~/background/NSFW/ --save
 bindsym $mod+Ctrl+w exec --no-startup-id /usr/bin/nitrogen --set-zoom-fill --random ~/background/NORMAL/ --save
 
 # Volume controls
