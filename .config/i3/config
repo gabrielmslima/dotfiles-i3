@@ -2,7 +2,7 @@
 set $mod Mod4
 
 # Font settings
-font pango:JetBrains Mono 10
+font pango:JetBrains Mono 5
 
 # Autostart applications and services
 exec --no-startup-id dex-autostart --autostart --environment i3
@@ -13,12 +13,12 @@ exec --no-startup-id nitrogen --restore --random
 
 # Change Wallpapers
 bindsym $mod+Ctrl+w exec --no-startup-id /usr/bin/nitrogen --set-zoom-fill --random ~/background/NORMAL/ --save
-bindsym $mod+Shift+w exec --no-startup-id /usr/bin/nitrogen --set-zoom-fill --random ~/background/NSFW/ --save
+bindsym $mod+Shift+w exec --no-startup-id /usr/bin/nitrogen --set-zoom-fill --random ~/background/OTHERS/ --save
 
 # Volume controls
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -80,7 +80,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "5"
 
 # Switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -115,10 +115,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Resize window mode
 mode "resize" {
-    bindsym h resize shrink width 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym k resize shrink height 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
+    bindsym h resize shrink width 5 px or 5 ppt
+    bindsym j resize grow height 5 px or 5 ppt
+    bindsym k resize shrink height 5 px or 5 ppt
+    bindsym l resize grow width 5 px or 5 ppt
 
     # Back to normal: Enter or Escape or $mod+r
     bindsym Return mode "default"
@@ -128,7 +128,9 @@ mode "resize" {
 
 # Set floating mode for specific applications
 for_window [class="Nitrogen" instance="nitrogen"] floating enable
-for_window [class="gnome-calculator" instance="gnome-calculator"] floating enable
+for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
+for_window [class="Gnome-screenshot" instance="gnome-screenshot"] floating enable
+for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="Mumble" instance="Mumble"] floating enable
 
 # Resize mode activation
