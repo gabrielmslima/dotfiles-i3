@@ -19,19 +19,13 @@ First Ensure you have the dependencies installed on your system.
 
 ## for fedora based distros
 
-### Git
-
 ```
 sudo dnf install git
 ```
 
-### Stow
-
 ```
 sudo dnf install stow
 ```
-
-### Other dependencies
 
 ```
 sudo dnf install zsh zsh-syntax-highlighting zsh-autosuggestions zsh-completions fzf ripgrep zoxide fzf eza ripgrep
@@ -39,19 +33,13 @@ sudo dnf install zsh zsh-syntax-highlighting zsh-autosuggestions zsh-completions
 
 ## for archlinux based distros
 
-### Git
-
 ```
 sudo pacman -S git
 ```
 
-### Stow
-
 ```
 sudo pacman -S stow
 ```
-
-### Other dependencies
 
 ```
 sudo pacman -S zsh zsh-syntax-highlighting zsh-autosuggestions zsh-completions fzf ripgrep zoxide fzf eza ripgrep

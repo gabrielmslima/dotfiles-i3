@@ -13,6 +13,7 @@ exec --no-startup-id nitrogen --restore --random
 
 # Change Wallpapers
 bindsym $mod+Ctrl+w exec --no-startup-id /usr/bin/nitrogen --set-zoom-fill --random ~/background/NORMAL/ --save
+bindsym $mod+Shift+w exec --no-startup-id /usr/bin/nitrogen --set-zoom-fill --random ~/background/NSFW/ --save
 
 # Volume controls
 set $refresh_i3status killall -SIGUSR1 i3status

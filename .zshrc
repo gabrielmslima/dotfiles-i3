@@ -29,8 +29,6 @@ setopt appendhistory
 
 source $ZSH/oh-my-zsh.sh
 
-alias i3c='nvim ~/.config/i3/config'
-alias zrc='nvim ~/.zshrc'
 alias notes='nvim ~/anotacoes.txt'
 alias v='nvim'
 alias c='clear'
@@ -62,4 +60,3 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
