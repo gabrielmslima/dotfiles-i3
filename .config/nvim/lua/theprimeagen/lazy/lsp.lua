@@ -30,6 +30,7 @@ return {
                 "rust_analyzer",
                 "gopls",
                 "clangd",
+                "tsserver"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
